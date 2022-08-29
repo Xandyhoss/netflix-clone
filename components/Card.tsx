@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 /* eslint-disable @next/next/no-img-element */
 const sizes = ["large", "medium", "small"] as const;
@@ -8,10 +9,7 @@ type PropsType = {
 };
 
 export default function Card(props: PropsType) {
-  const {
-    imgUrl = "https://images.wallpaperscraft.com/image/single/toyota_supra_green_front_view_102266_1920x1080.jpg",
-    size = "medium",
-  } = props;
+  const { imgUrl = "/img/card-img.jpg", size = "medium" } = props;
   const classMap = {
     large: "w-[250px] h-[350px]",
     medium: "w-[180px] h-[280px]",
@@ -19,12 +17,14 @@ export default function Card(props: PropsType) {
   };
 
   const imgErrorHandler = () => {
-    console.log('Error on image, ID: ')
+    console.log("Error on image, ID: ");
   };
-
   return (
-    <div className={`${classMap[size]} relative cursor-pointer`}>
-      <p className="z-[1]">card size: {size}</p>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      className={`${classMap[size]} relative cursor-pointer overflow-hidden rounded-md z-[1] hover:z-20 hover:drop-shadow-md`}
+    >
       <Image
         src={imgUrl}
         alt="Image"
@@ -32,6 +32,6 @@ export default function Card(props: PropsType) {
         className="object-cover z-[-1] object-center mx-auto my-auto block absolute"
         onError={imgErrorHandler}
       />
-    </div>
+    </motion.div>
   );
 }
