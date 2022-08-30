@@ -1,26 +1,55 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Banner from "../components/Banner";
-import Card from "../components/Card";
+import CardSection from "../components/CardSection";
 import Navbar from "../components/Navbar";
 
-const data: { id: number; imgUrl?: string }[] = [];
+const Home: NextPage = () => {
+  const data: {
+    id: number;
+    imgUrl?: string;
+    size?: "large" | "small" | "medium";
+  }[] = [];
 
-for (var i = 0; i <= 9; i++) {
-  if (i % 2 == 0) {
+  for (var i = 0; i <= 8; i++) {
     data.push({
       id: i,
       imgUrl:
-        "https://images.wallpaperscraft.com/image/single/toyota_supra_green_front_view_102266_1920x1080.jpg",
-    });
-  } else {
-    data.push({
-      id: i,
+        "/img/card-img.jpg",
+      size: "large",
     });
   }
-}
 
-const Home: NextPage = () => {
+  const data2: {
+    id: number;
+    imgUrl?: string;
+    size?: "large" | "small" | "medium";
+  }[] = [];
+
+  for (var i = 0; i <= 8; i++) {
+    data2.push({
+      id: i,
+      imgUrl:
+        "https://images.wallpaperscraft.com/image/single/toyota_supra_green_front_view_102266_1920x1080.jpg",
+      size: "medium",
+    });
+  }
+
+  const data3: {
+    id: number;
+    imgUrl?: string;
+    size?: "large" | "small" | "medium";
+  }[] = [];
+
+  for (var i = 0; i <= 8; i++) {
+    data3.push({
+      id: i,
+      imgUrl:
+        "/img/card-img.jpg",
+      size: "small",
+    });
+  }
+
   return (
     <div className="h-screen">
       <Head>
@@ -34,18 +63,9 @@ const Home: NextPage = () => {
         "
         imgUrl="https://images.wallpaperscraft.com/image/single/toyota_supra_green_front_view_102266_1920x1080.jpg"
       />
-      <div className="w-full p-10 gap-y-10 flex flex-col">
-        <div className="flex gap-5">
-          {data.map((item, i) => {
-            return <Card imgUrl={item.imgUrl} key={i} />;
-          })}
-        </div>
-        <div className="flex gap-5">
-          {data.map((item, i) => {
-            return <Card imgUrl={item.imgUrl} key={i} />;
-          })}
-        </div>
-      </div>
+      <CardSection title="Large section" data={data} size="large" />
+      <CardSection title="Medium section" data={data2} size="medium"/>
+      <CardSection title="Small section" data={data3} size="small"/>
     </div>
   );
 };

@@ -14,10 +14,14 @@ body {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-.navbar-list{
-  @apply flex gap-5 font-roboto
+.navbar-list {
+  @apply flex gap-5 font-roboto;
 }
 
 .navbar-list li {
-  @apply hover:text-gray-300 transition-all cursor-pointer
+  @apply hover:text-gray-300 transition-all cursor-pointer;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
 }

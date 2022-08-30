@@ -20,7 +20,7 @@ export default function Navbar(props: PropsType) {
     router.push(route);
   };
   return (
-    <nav className="fixed z-20 h-20 w-full flex items-center px-10 justify-between top-0 left-0">
+    <nav className="fixed z-[99] h-20 w-full flex items-center px-10 justify-between top-0 left-0">
       <div className="flex items-center gap-10">
         <div>
           <div className="flex h-20 items-center">

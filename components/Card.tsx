@@ -11,9 +11,9 @@ type PropsType = {
 export default function Card(props: PropsType) {
   const { imgUrl = "/img/card-img.jpg", size = "medium" } = props;
   const classMap = {
-    large: "w-[250px] h-[350px]",
-    medium: "w-[180px] h-[280px]",
-    small: "w-[230px] h-[150px]",
+    large: "min-w-[220px] h-[350px]",
+    medium: "min-w-[180px] h-[280px]",
+    small: "min-w-[230px] h-[150px]",
   };
 
   const imgErrorHandler = () => {
@@ -29,7 +29,7 @@ export default function Card(props: PropsType) {
         src={imgUrl}
         alt="Image"
         layout="fill"
-        className="object-cover z-[-1] object-center mx-auto my-auto block absolute"
+        className="object-cover z-[-1] object-center block absolute"
         onError={imgErrorHandler}
       />
     </motion.div>
