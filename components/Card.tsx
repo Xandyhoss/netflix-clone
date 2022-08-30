@@ -21,7 +21,7 @@ export default function Card(props: PropsType) {
   };
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`${classMap[size]} relative cursor-pointer overflow-hidden rounded-md z-[1] hover:z-20 hover:drop-shadow-md`}
     >
