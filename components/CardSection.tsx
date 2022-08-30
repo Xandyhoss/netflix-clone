@@ -15,10 +15,10 @@ const handleSlide = (direction: "left" | "right", title: string) => {
   if (slider !== null) {
     switch (direction) {
       case "left":
-        slider.scrollLeft += 500;
+        slider.scrollLeft -= 500;
         break;
       case "right":
-        slider.scrollLeft -= 500;
+        slider.scrollLeft += 500;
         break;
     }
   }
@@ -33,20 +33,20 @@ export default function CardSection(props: PropsType) {
         <CaretLeft
           size={70}
           className="self-center hover:scale-[1.2] transition-all"
-          onClick={() => handleSlide("right", title)}
+          onClick={() => handleSlide("left", title)}
         />
         <div
           className="flex gap-3 py-3 px-2 overflow-x-scroll hide-scroll-bar scroll-smooth"
           id={title}
         >
           {data.map((item, i) => {
-            return <Card imgUrl={item.imgUrl} size={size} key={i} />;
+            return <Card imgUrl={item.imgUrl} size={size} key={item.id} />;
           })}
         </div>
         <CaretRight
           size={70}
           className="self-center hover:scale-[1.2] transition-all"
-          onClick={() => handleSlide("left", title)}
+          onClick={() => handleSlide("right", title)}
         />
       </div>
     </section>
